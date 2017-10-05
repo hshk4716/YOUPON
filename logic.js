@@ -2,7 +2,7 @@
 
 //////////////////On click event for the search button///////////////////////
 
-$("#submit-btm").click(function()
+$("#submit-btn").click(function()
 {
 	var userKey= $("#autocomplete-input").val().trim();
 	console.log(userKey)
