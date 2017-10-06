@@ -7,7 +7,7 @@ $(document).ready(function() {
 //		
 
 $("#submit-btn").click(function() {
-	
+
 	event.preventDefault();
 	$(".view-2").show();
 	$(".results-section").empty();
@@ -25,51 +25,70 @@ $("#submit-btn").click(function() {
 	    console.log(response)
 	    for (var i = 0; i < 10 ; i++) {
 	     	
-		    var imgUrl = response.deals[i].deal.image_url;
-		    var h1 = response.deals[i].deal.title;
-		    console.log(h1);
-		    var name = response.deals[i].deal.merchant.name;
+	     	var category_slug= response.deals[i].deal.category_slug;
+            console.log(category_slug)
+            
+            // make sure we're pulling restaurants!
+            if(category_slug==="restaurants") {
+			    var imgUrl = response.deals[i].deal.image_url;
+			    var h1 = response.deals[i].deal.title;
+			    console.log(h1);
+			    var name = response.deals[i].deal.merchant.name;
+			    var nameUppercase = name.toUpperCase();
+			    var dealUrl = response.deals[i].deal.url;
+			    
+			    var newDealDiv = $("<div>");
+				newDealDiv.addClass("col-sm-6 col-md-4");
 
-		    
-		    var newDealDiv = $("<div>");
-			newDealDiv.addClass("col-sm-6 col-md-4");
+				var newDealDivCard = $("<div>");
+				newDealDivCard.addClass("card");
 
-			var newDealDivThumb = $("<div>");
-			newDealDivThumb.addClass("thumbnail");
+				var newDealDivImg = $("<img>");
+				newDealDivImg.addClass("card-img-top");
+				newDealDivImg.attr("src", imgUrl);
+				newDealDivImg.attr("alt", "Card image cap");
 
-			var newDealDivImg = $("<img>");
-			newDealDivImg.attr("src", imgUrl);
-			newDealDivImg.attr("alt", "img");
+				var newDealDivBlock = $("<div>");
+				newDealDivBlock.addClass("card-block");
 
-			var newDealDivCaption = $("<div>");
-			newDealDivCaption.addClass("caption");
+				newDealDivBlock.append("<h4 class='card-title'>" + name + "</h4>");
+				newDealDivBlock.append("<p class='card-text'>" + h1 + "</p>");
 
-			newDealDivCaption.append("<h3>" + name + "</h3>");
-			newDealDivCaption.append("<p>" + h1 + "</p>");
+				var newDealDivInspection = $("<ul>");
+				newDealDivInspection.addClass("list-group list-group-flush");
+				var inspectionInfo = $("<li class='list-group-item'>" + "We've got inspection data" + "</li>");
+				newDealDivInspection.append(inspectionInfo);
+
+				var dealLinkBlock = $("<div>");
+				dealLinkBlock.addClass("card-block");
+				dealLinkBlock.append("<a href='" + dealUrl +"' class='card-link'  target='_blank'>" + "Get this deal >>" + "</a>");
+
+				newDealDivCard.append(newDealDivImg);
+				newDealDivCard.append(newDealDivBlock);
+				newDealDivCard.append(newDealDivInspection);
+				newDealDivCard.append(dealLinkBlock);
+
+				newDealDiv.append(newDealDivCard);
+
+				$(".results-section").append(newDealDiv);
 
 
-			newDealDivThumb.append(newDealDivImg);
-			newDealDivThumb.append(newDealDivCaption);
 
-			newDealDiv.append(newDealDivThumb);
+				$.ajax({
+				    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json?aka_name='" + nameUppercase +"'",
+				    type: "GET",
+				    data: {
+				      "$limit" : 5000,
+				      "$$app_token" : "YyemuyggIVumoVRnsbIlmLeqq"
+				    }
+				}).done(function(data) {
+				  // alert("Retrieved " + data.length + " records from the dataset!");
+				  console.log(data);
+				
+				}); // close city data API call
 
-			$(".results-section").append(newDealDiv);
-
-			$.ajax({
-			    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json?aka_name=Carlos Mexican",
-			    type: "GET",
-			    data: {
-			      "$limit" : 5000,
-			      "$$app_token" : "YyemuyggIVumoVRnsbIlmLeqq"
-			    }
-			}).done(function(data) {
-			  // alert("Retrieved " + data.length + " records from the dataset!");
-			  console.log(data);
-			
-			}); // close city data API call
-
-		}
-
+			} // close if statement checking for restaurants	
+		} //close for loop
     }); // close sqoot API call
 
 }); // close submit button listener

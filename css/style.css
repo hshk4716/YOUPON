@@ -1,9 +1,16 @@
 /*  general styling  */
 /*===================*/
+html, body {
+  height: 100%;
+}
+.container, .row.justify-content-center.align-items-center {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+}	
 body {
 	overflow-x: hidden;
 	font-family: 'Roboto', sans-serif;
-
 }
 h3 {
 	font-weight: lighter;
@@ -12,11 +19,11 @@ h3 {
 /*  view 1 styling  */
 /*==================*/
 .view-1 {
-	min-height: 100%;
-	min-height: 100vh;
+	/*min-height: 100%;
+	min-width: 100%;*/
 	background-color: #ffcc80;
-	padding: 210px 0;
-}
+/*	padding: 210px 0;
+*/}
 
 /*  view 2 styling  */
 /*==================*/
@@ -24,6 +31,8 @@ h3 {
 /*view 2 won't show until a search has been submitted*/
 .view-2 {
 	display: none;
+	padding: 10px 20px;
+	margin: 0 20px;
 }
 .section-header {
 	margin: 20px;
@@ -32,14 +41,20 @@ h3 {
 	max-height: 150px;
 	width: auto;
 }
-.thumbnail {
+.card {
+	margin: 10px;
+}
+.card-block {
+	padding: 18px;
+}
+/*.thumbnail {
 	padding : 20px;
 	min-height: 450px;
-}
-.inspection-rating {
+}*/
+/*.inspection-rating {
 	color: red;
 	font-size: 40px
-}
+}*/
 
 /*  scrollToTop button styling  */
 /*==============================*/
