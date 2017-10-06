@@ -7,8 +7,7 @@ $("#submit-btn").click(function()
 	var userKey= $("#search-term").val().trim();
 	console.log(userKey)
 	var queryURL1 = "http://api.sqoot.com/v2/deals?query="+ userKey+ "&api_key=ayeoGcPfH-7ZUjj5u082"
-	//var queryURL2 = "https://data.cityofchicago.org/profile/hshk4716/rj9x-ky8u/app_token=YyemuyggIVumoVRnsbIlmLeqq/new"
-	//var queryURL = "http://api.sqoot.com/v2/deals?api_key=ayeoGcPfH-7ZUjj5u082";
+	
 var search = "";
 
 
@@ -22,25 +21,41 @@ $.ajax({
 	     console.log(response)
 	     for(var i =0; i<10 ; i++) 
 	     {
-	     	///Creating a new <Div> for search result//// 
-		     var searchDivEl = $("<div>");
-		     var headingEl = $("<h3>");
-		     var imgEl     = $("<img>");
+	     	
 		     var imgUrl    = response.deals[i].deal.image_url
 		     var h1 = response.deals[i].deal.title;
 		     console.log(h1)
 
 
-		     searchDivEl.attr("id", "searchDiv" ); ///Adding id new div////
-		     headingEl.text(h1)
-		     imgEl.attr("src", imgUrl)
-		     $("#searchDivEl").append(headingEl)
-		     $("#searchDivEl").append(imgEl)
-		     $("#search-Div").append(searchDivEl)
- 		 }
+		    
+
+		     var newDealDiv = $("<div>");
+			newDealDiv.addClass("col-sm-6 col-md-4");
+
+			var newDealDivThumb = $("<div>");
+			newDealDivThumb.addClass("thumbnail");
+
+			var newDealDivImg = $("<img>");
+			newDealDivImg.attr("src", imgUrl);
+			newDealDivImg.attr("alt", "img");
+
+			var newDealDivCaption = $("<div>");
+			newDealDivCaption.addClass("caption");
+
+			newDealDivCaption.append("<h3>" + "RESTAURANT_NAME" + "</h3>");
+			newDealDivCaption.append("<p>" + h1 + "</p>");
+
+
+			newDealDivThumb.append(newDealDivImg);
+			newDealDivThumb.append(newDealDivCaption);
+
+			newDealDiv.append(newDealDivThumb);
+
+			$(".results-section").append(newDealDiv);
+		}
 
 $.ajax({
-    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json",
+    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json?aka_name=Carlos Mexican",
     type: "GET",
     data: {
       "$limit" : 5000,
