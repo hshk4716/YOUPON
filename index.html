@@ -3,14 +3,9 @@
 <head>
 	<title>Youpon! See deals near you and Yelp ratings in one convenient place </title>
 	
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-	
-	<!-- Link Material Design Icons -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<!-- Link to css stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -18,40 +13,113 @@
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+	<!-- Link to JQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!-- Link to Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700i" rel="stylesheet">
+
 </head>
 <body>
-	
-	<div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
-	    <div class="valign" style="width:100%;">	
-			
-			<div class="row">
-				<div class="col s12 m12 ">
-					<h5 class="light center-align"> Deals near you, verified by Yelp.</h5>
-				</div>
-				<div class="col s12 m10 push-m1">
-					<div class="input-field center">
-						<i class="material-icons prefix">search</i>
-						<input type="text" id="autocomplete-input" class="autocomplete">
-						<label for="autocomplete-input">Find deals on...</label>
-						
-						<a href="landing.html">
-							<input type="submit" id="submit-btn" value="Search">
-						</a>
+	<div class="row view-1">
+		<div class="container">
+			<h3 class="text-center"> Easily check if that bargain is so sweet after all. </h3>
+		</div>
 
-					</div>
-				</div>
+		<br><br>
+		
+		<div class="container">
+			<div class="col-md-1"></div>
+			
+			<div class="col-md-10 text-center">
+				<div class="input-group-lg">
+			    	<input type="text" class="form-control" id="search-term" placeholder="Find deals on...">
+			    	<br>
+		    		<button class="btn btn-danger" id="submit-btn" type="button" role="button">Search</button>
+			    </div><!-- /input-group -->
 				
 			</div>
-	    
-	    </div>	
+
+			<div class="col-md-1"></div>
+		</div>
+					
 	</div>
-		
+	
+	<!-- div for appending results -->
+
+	<div class="row view-2">
+		<div class="container">
+			<div class="section results-section">
+				<div class="section-header"> 
+					<h2> Search Results </h2><hr>
+				</div>
+				
+				<div class="row">
+		  		
+		  			<div class="col-sm-6 col-md-4">
+		    				<div class="thumbnail">
+		      					<img src="images/placeholder.png" alt="">
+		      					<div class="caption">
+		        					<h3>One Dollar Tacos</h3>
+		        					<p>I like tacos and so do you and for a limited time get them for one dollar my dude!</p><br>
+		        					<p class="text-center"> <strong>Inspection Rating:</strong>
+		        						<span class="inspection-rating"><br> A </span>
+		        					</p>
+		      					</div>
+		    				</div>
+		  			</div>
+
+		  			<div class="col-sm-6 col-md-4">
+		    				<div class="thumbnail">
+		      					<img src="images/placeholder.png" alt="">
+		      					<div class="caption">
+		        					<h3>One Dollar Tacos</h3>
+		        					<p>I like tacos and so do you and for a limited time get them for one dollar my dude!</p><br>
+		        					<p class="text-center"> <strong>Inspection Rating:</strong>
+		        						<span class="inspection-rating"><br> A </span>
+		        					</p>
+		      					</div>
+		    				</div>
+		  			</div>
+
+		  			<div class="col-sm-6 col-md-4">
+		    				<div class="thumbnail">
+		      					<img src="images/placeholder.png" alt="">
+		      					<div class="caption">
+		        					<h3>One Dollar Tacos</h3>
+		        					<p>I like tacos and so do you and for a limited time get them for one dollar my dude!</p><br>
+		        					<p class="text-center"> <strong>Inspection Rating:</strong>
+		        						<span class="inspection-rating"><br> A </span>
+		        					</p>
+		      					</div>
+		    				</div>
+		  			</div>
+				</div>
+				
+				<!-- horizontal divs ? -->
+				<!-- <div class="panel panel-default">
+					<div class="row">
+						<div class="col-md-3 deal-img">
+							<img class=""src="images/placeholder.png">
+						</div>
+						<div class="col-md-7 deal-description">
+							<h4> One Dollar Tacos </h4><br>
+							<p>I like tacos and so do you and for a limited time get them for one dollar my dude!</p>
+						</div>
+						<div class="col-md-2 inspection-rating">A</div>
+					</div>
+				</div> -->
+
+			
+			<!-- button for scroll to view-1 div, appears on upscroll, says back to search in text on the side, or turns to mag glass on hover? -->
+			<a href="#" class="scrollToTop">Scroll To Top</a>
+
+			</div>
+		</div>
+	</div>
 
 
 
-
-	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/logic2.js"></script>
 </body>
 </html>

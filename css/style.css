@@ -1,4 +1,57 @@
-.landing-left {
-	background-color: #ff8a80;
-	/*background-image: ;*/
+/*  general styling  */
+/*===================*/
+body {
+	overflow-x: hidden;
+	font-family: 'Roboto', sans-serif;
+
+}
+h3 {
+	font-weight: lighter;
+}
+
+/*  view 1 styling  */
+/*==================*/
+.view-1 {
+	min-height: 100%;
+	min-height: 100vh;
+	background-color: #ffcc80;
+	padding: 210px 0;
+}
+
+/*  view 2 styling  */
+/*==================*/
+.section-header {
+	margin: 20px;
+}
+.deal-img {
+	max-height: 150px;
+	width: auto;
+}
+.thumbnail {
+	padding : 20px;
+}
+.inspection-rating {
+	color: red;
+	font-size: 40px
+}
+
+/*  scrollToTop button styling  */
+/*==============================*/
+.scrollToTop {
+	widows: 7px;0px; 
+	height:70px;
+	padding:10px; 
+	text-align:center; 
+	background-color: whiteSmoke;
+	font-weight: bold;
+	color: #444;
+	text-decoration: none;
+	position:fixed;
+	bottom:35px;
+	right:40px;
+	display:none;
+	/*background: url('arrow_up.png') no-repeat 0px 20px;*/
+}
+.scrollToTop:hover {
+	text-decoration:none;
 }
