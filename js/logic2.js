@@ -1,3 +1,5 @@
+// just for page animations
+
 $(document).ready(function(){
 	
 	//Check to see if the window is top if not then display button
