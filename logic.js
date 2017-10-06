@@ -7,12 +7,14 @@ $(document).ready(function() {
 //		
 
 $("#submit-btn").click(function() {
-
+	
+	event.preventDefault();
+	$(".view-2").show();
 	$(".results-section").empty();
 	
 	var userKey= $("#search-term").val().trim();
 	console.log(userKey)
-	var queryURL1 = "http://api.sqoot.com/v2/deals?query="+ userKey+ "&api_key=ayeoGcPfH-7ZUjj5u082"
+	var queryURL1 = "http://api.sqoot.com/v2/deals?query="+ userKey+ "&category_slug=restaurants&location=cityofchicago&api_key=ayeoGcPfH-7ZUjj5u082";
 
 
 	$.ajax({
@@ -61,7 +63,7 @@ $("#submit-btn").click(function() {
 			      "$$app_token" : "YyemuyggIVumoVRnsbIlmLeqq"
 			    }
 			}).done(function(data) {
-			  alert("Retrieved " + data.length + " records from the dataset!");
+			  // alert("Retrieved " + data.length + " records from the dataset!");
 			  console.log(data);
 			
 			}); // close city data API call

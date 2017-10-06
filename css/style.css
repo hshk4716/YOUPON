@@ -20,6 +20,11 @@ h3 {
 
 /*  view 2 styling  */
 /*==================*/
+
+/*view 2 won't show until a search has been submitted*/
+.view-2 {
+	display: none;
+}
 .section-header {
 	margin: 20px;
 }
@@ -29,6 +34,7 @@ h3 {
 }
 .thumbnail {
 	padding : 20px;
+	min-height: 450px;
 }
 .inspection-rating {
 	color: red;
