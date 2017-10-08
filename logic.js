@@ -35,24 +35,28 @@ $("#submit-btn").click(function() {
 			    console.log(h1);
 			    var name = response.deals[i].deal.merchant.name;
 			    var nameUppercase = name.toUpperCase();
+			    var urlCorrected = encodeURIComponent(nameUppercase)
+			    var finalURL = urlCorrected.replace("'", "%27").replace("-", "%2D").replace("!", "%21");
+
+			    console.log("HUMERA LOOK HERE", finalURL);
 			    var dealUrl = response.deals[i].deal.url;
 			    
 			    var newDealDiv = $("<div>");
-				newDealDiv.addClass("col-sm-6 col-md-4");
+				newDealDiv.addClass("col-sm-6 col-md-3");
 
 				var newDealDivCard = $("<div>");
 				newDealDivCard.addClass("card");
 
 				var newDealDivImg = $("<img>");
-				newDealDivImg.addClass("card-img-top");
+				newDealDivImg.addClass("card-img-top img-responsive");
 				newDealDivImg.attr("src", imgUrl);
 				newDealDivImg.attr("alt", "Card image cap");
 
 				var newDealDivBlock = $("<div>");
 				newDealDivBlock.addClass("card-block");
 
-				newDealDivBlock.append("<h4 class='card-title'>" + name + "</h4>");
-				newDealDivBlock.append("<p class='card-text'>" + h1 + "</p>");
+				newDealDivBlock.append("<h5 class='card-title'>" + name + "</h5>");
+				newDealDivBlock.append("<p class='card-text text-muted'>" + h1 + "</p>");
 
 				var newDealDivInspection = $("<ul>");
 				newDealDivInspection.addClass("list-group list-group-flush");
@@ -75,10 +79,9 @@ $("#submit-btn").click(function() {
 
 
 				$.ajax({
-				    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json?aka_name='" + nameUppercase +"'",
+				    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json?$limit=50000000&$offset=0&aka_name=" + finalURL +"",
 				    type: "GET",
 				    data: {
-				      "$limit" : 5000,
 				      "$$app_token" : "YyemuyggIVumoVRnsbIlmLeqq"
 				    }
 				}).done(function(data) {
