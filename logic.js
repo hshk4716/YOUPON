@@ -5,6 +5,7 @@ $(document).ready(function() {
 //		make sqoot ajax calls
 //		repopulate results section with Sqoot API data,
 //		
+
 var riskResponse;
 var violationsResponse;
 
@@ -40,7 +41,6 @@ $("#submit-btn").click(function() {
 			    var urlCorrected = encodeURIComponent(nameUppercase)
 			    var finalURL = urlCorrected.replace("'", "%27").replace("-", "%2D").replace("!", "%21");
 
-			    // console.log("HUMERA LOOK HERE", finalURL);
 			    var dealUrl = response.deals[i].deal.url;
 			    
 			    var newDealDiv = $("<div>");
@@ -106,21 +106,13 @@ $("#submit-btn").click(function() {
 				 	console.log("risk reponse : " + riskResponse);
 				 	console.log("violations response: " +violationsResponse);
 
-					// for (var j = 0; j < data.length; j++) {
-						// var akaNameNew = (data[j].aka_name);
-						// var riskResponseNew = data[j].risk;
-						// var violationsResponseNew = data[j].violations;
-						// var inspectionDateNew = data[j].inspection_date;				
-											 	
-				 	// if (akaNameNew[j] === nameUppercase[i]) {
+					
 				 	console.log("p[data-name='" + nameUppercase + "']");
 				 	
-				 	// 	}	
-				 	// }
-				
 
 				}); // close city data API call (.done)
 					console.log("now im grabbing riskResponse: " + riskResponse)
+					// we're tryng to add risk rating to DOM card
 			 		$("p[data-name='" + nameUppercase + "']").text("heeee");
 			 		// $("[data-name~='" + nameUppercase + "'] .violation-data").text(violationsResponse);
 
