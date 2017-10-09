@@ -5,6 +5,8 @@ $(document).ready(function() {
 //		make sqoot ajax calls
 //		repopulate results section with Sqoot API data,
 //		
+var riskResponse;
+var violationsResponse;
 
 $("#submit-btn").click(function() {
 
@@ -42,7 +44,7 @@ $("#submit-btn").click(function() {
 			    var dealUrl = response.deals[i].deal.url;
 			    
 			    var newDealDiv = $("<div>");
-				newDealDiv.addClass("col-sm-6 col-md-3");
+				newDealDiv.addClass("col-sm-6 col-md-4 col-lg-3");
 
 				var newDealDivCard = $("<div>");
 				newDealDivCard.addClass("card");
@@ -60,6 +62,8 @@ $("#submit-btn").click(function() {
 
 				var newDealDivInspection = $("<p>");
 				newDealDivInspection.addClass("inspection-ratings");
+				newDealDivInspection.attr('data-name', nameUppercase);
+
 				var inspectionInfo = $("<p>");
 				inspectionInfo.addClass("violation-data")
 				// newDealDivInspection.append(inspectionInfo);
@@ -79,42 +83,46 @@ $("#submit-btn").click(function() {
 				$(".results-section").append(newDealDiv);
 
 
-
+				
 				$.ajax({
 				    url: "https://data.cityofchicago.org/resource/cwig-ma7x.json?$limit=50000000&$offset=0&aka_name=" + finalURL +"",
 				    type: "GET",
 				    data: {
 				      "$$app_token" : "YyemuyggIVumoVRnsbIlmLeqq"
 				    }
-				}).done(function(data) {			 
+				}).done(function(data) {	
+					// first, sort the data by inspection date			 
 			 		data.sort(function(a, b) {
-    		 		return parseFloat(b.inspection_date) - parseFloat(a.inspection_date);				
-					// console.log(data);
+	    		 		return parseFloat(b.inspection_date) - parseFloat(a.inspection_date);				
+						// console.log(data);
 					}); 
-				var akaName = (data[0].aka_name);
-			 	var riskResponse = data[0].risk;
-			 	var violationsResponse = data[0].violations;
-			 	var inspectionDate = data[0].inspection_date;
-			 	console.log(akaName);
-			 	console.log(inspectionDate);
-			 	console.log(riskResponse);
-			 	console.log(violationsResponse);
+			 		// grab info from most recent inspection
+					var akaName = (data[0].aka_name);
+				 	riskResponse = data[0].risk;
+				 	violationsResponse = data[0].violations;
+				 	var inspectionDate = data[0].inspection_date;
+				 	console.log(akaName);
+				 	console.log(inspectionDate);
+				 	console.log("risk reponse : " + riskResponse);
+				 	console.log("violations response: " +violationsResponse);
 
-				// for (var j = 0; j < data.length; j++) {
-					// var akaNameNew = (data[j].aka_name);
-					// var riskResponseNew = data[j].risk;
-					// var violationsResponseNew = data[j].violations;
-					// var inspectionDateNew = data[j].inspection_date;				
-										 	
-			 	// if (akaNameNew[j] === nameUppercase[i]) {
-			 		// $(".inspection-ratings").text(riskResponse);
-			 		// $(".violation-data").text(violationsResponse);
-			 	
-			 	// 	}	
-			 	// }
-			
+					// for (var j = 0; j < data.length; j++) {
+						// var akaNameNew = (data[j].aka_name);
+						// var riskResponseNew = data[j].risk;
+						// var violationsResponseNew = data[j].violations;
+						// var inspectionDateNew = data[j].inspection_date;				
+											 	
+				 	// if (akaNameNew[j] === nameUppercase[i]) {
+				 	console.log("p[data-name='" + nameUppercase + "']");
+				 	
+				 	// 	}	
+				 	// }
+				
 
 				}); // close city data API call (.done)
+					console.log("now im grabbing riskResponse: " + riskResponse)
+			 		$("p[data-name='" + nameUppercase + "']").text("heeee");
+			 		// $("[data-name~='" + nameUppercase + "'] .violation-data").text(violationsResponse);
 
 			} // close if statement checking for restaurants	
 		} //close for loop

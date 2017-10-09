@@ -16,6 +16,10 @@ h2, h3, h4 {
 	font-weight: lighter;
 }
 
+div.firebaseui-card-content {
+	float: right;
+}
+
 /*  view 1 styling  */
 /*==================*/
 .view-1 {
@@ -47,7 +51,7 @@ h2, h3, h4 {
 	width: auto;
 }
 .card {
-	margin: 10px 8px;
+	margin: 10px 7px;
 	border: none;
 	font-size: smaller;
 	/*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);*/
@@ -81,7 +85,7 @@ h2, h3, h4 {
 	bottom:35px;
 	right:40px;
 	display:none;
-	border-radius: 15px 50px;
+	border-radius: 15px;
 	/*background: url("../images/chevron_up.png") no-repeat 0px 20px;*/
 }
 .scrollToTop-icons {
