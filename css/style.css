@@ -81,6 +81,7 @@ h2, h3, h4 {
 	bottom:35px;
 	right:40px;
 	display:none;
+	border-radius: 15px 50px;
 	/*background: url("../images/chevron_up.png") no-repeat 0px 20px;*/
 }
 .scrollToTop-icons {
@@ -91,3 +92,10 @@ h2, h3, h4 {
 	text-decoration:none;
 	background-color: #fff;
 }
+
+/* Footer Styling  */
+/* ================*/
+.footer {
+	background: #444;
+	padding: 10px;
+}	
