@@ -42,6 +42,7 @@ h2, h3, h4 {
 	color: white;
 }
 .top-row {
+	/*padding-top: 10px;*/
 	font-size: smaller;
 	color: white;
 }
@@ -57,10 +58,14 @@ h2, h3, h4 {
 	/*margin-top: 10px;*/
 	background-color: transparent;
 	color: white;
+	border: 2px solid white;
 }
 #signInButton:hover {
 	text-decoration: underline;	
 	cursor: pointer;
+}
+#signInButtonContainer {
+	padding-top: 10px
 }
 
 /*  view 2 styling  */
@@ -162,7 +167,8 @@ h2, h3, h4 {
 /* ================*/
 .footer {
 	background: #444;
-	padding: 10px;
-	padding-bottom: 10px;
+	padding-top: 15px;
+	/*padding-bottom: 10px;*/
 	font-size: smaller;
+	height: 50px;
 }	

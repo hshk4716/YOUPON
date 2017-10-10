@@ -20,6 +20,7 @@ $(document).ready(function() {
     $("#sign-out").on("click", function() {
         firebase.auth().signOut();
         $("#signInButton").show();
+        $("#sign-in-status-container").hide();
         $("#sign-out").hide();
     })
 
@@ -40,10 +41,18 @@ $("#submit-btn").click(function() {
     
     var userKey= $("#search-term").val().trim();
     console.log(userKey)
-    var queryURL1 = "https://api.sqoot.com/v2/deals?query="+ userKey+ "&category_slug=restaurants&location=cityofchicago&api_key=ayeoGcPfH-7ZUjj5u082";
+    var originalURL = "https://api.sqoot.com/v2/deals?query="+ userKey+ "&category_slug=restaurants&location=cityofchicago&api_key=ayeoGcPfH-7ZUjj5u082";
+    var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL
+
     $.ajax({
+
         url: queryURL1,
-        method: "GET"
+        method: "GET",
+        dataType: "json",
+      	// this headers section is necessary for CORS-anywhere
+      	headers: {
+        "x-requested-with": "xhr" 
+    	}
     }).done(function(response) {
         console.log(response)
         if (response.deals.length === 0) {
@@ -139,8 +148,11 @@ $("#submit-btn").click(function() {
 	            } // close if statement checking for restaurants    
 	        } //close for loop
 	    } // close else 
-	}); // close sqoot API .done callback
-    
+	    console.log('CORS anywhere response', response);
+	}) // close sqoot API .done callback
+    .fail(function(jqXHR, textStatus) { 
+      console.error(textStatus)
+    });
 
 
 	// auto scroll to Search Results section

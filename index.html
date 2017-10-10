@@ -97,12 +97,14 @@
 
 			<div class="col-md-3">
 				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-default float-right" id="signInButton" data-toggle="modal" href="#exampleModal">
-				  Sign in
-				</button>
+				<div id="signInButtonContainer">
+					<button type="button" class="btn btn-default float-right" id="signInButton" data-toggle="modal" href="#exampleModal">
+					  Sign in
+					</button>
+				</div>
 
 				<div id="sign-in-status-container">
-					Signed in as <span id="account-details"></span>
+					Signed in as <span id="account-details"></span><br>
 					<a href="#" id="sign-out"> Sign out</a>
 				</div>
 			</div>
