@@ -16,9 +16,7 @@ h2, h3, h4 {
 	font-weight: lighter;
 }
 
-/*div.firebaseui-card-content {
-	float: right;
-}*/
+
 
 /*  view 1 styling  */
 /*==================*/
@@ -30,8 +28,33 @@ h2, h3, h4 {
   	-o-background-size: cover;
   	background-size: cover;
 }
+#logo {
+	font-family: 'Oswald', sans-serif;
+	font-size: 80px;
+	color: ghostwhite;
+}
 .landing-caption {
 	color: white;
+}
+.top-row {
+	font-size: smaller;
+	color: white;
+}
+#sign-out {
+	display: none;
+}
+#sign-in-status-container {
+	padding: 10px;
+	position: absolute;
+}
+#signInButton {
+	/*margin-top: 10px;*/
+	background-color: transparent;
+	color: white;
+}
+#signInButton:hover {
+	text-decoration: underline;	
+	cursor: pointer;
 }
 
 /*  view 2 styling  */
@@ -77,15 +100,14 @@ h2, h3, h4 {
 	width: 40px;
 	padding-top:5px; 
 	text-align:center; 
-	background-color: #eee;
+	background-color: #6b6b6b;
 	font-weight: bold;
-	color: #444;
 	text-decoration: none;
 	position:fixed;
 	bottom:35px;
 	right:40px;
 	display:none;
-	border-radius: 15px;
+	border-radius: 10px;
 	/*background: url("../images/chevron_up.png") no-repeat 0px 20px;*/
 }
 .scrollToTop-icons {
@@ -102,4 +124,6 @@ h2, h3, h4 {
 .footer {
 	background: #444;
 	padding: 10px;
+	padding-bottom: 10px;
+	font-size: smaller;
 }	

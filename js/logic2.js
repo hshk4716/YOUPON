@@ -24,4 +24,10 @@ $(document).ready(function(){
 	        scrollTop: $(".view-2").offset().top
 	    }, 500);
 	});
+
+	// show sign in modal box
+	$("#signInButton").click(function() {
+		$("#myModal").modal();
+		// console.log("Sign in !")
+	});
 });
