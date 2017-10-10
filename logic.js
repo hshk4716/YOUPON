@@ -42,7 +42,7 @@ $("#submit-btn").click(function() {
     var userKey= $("#search-term").val().trim();
     console.log(userKey)
     var originalURL = "https://api.sqoot.com/v2/deals?query="+ userKey+ "&category_slug=restaurants&location=cityofchicago&api_key=ayeoGcPfH-7ZUjj5u082";
-    var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL
+    var queryURL1 = "https://cors-anywhere.herokuapp.com/" + originalURL
 
     $.ajax({
 
