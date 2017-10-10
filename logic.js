@@ -1,24 +1,93 @@
 $(document).ready(function() {
     
-    // // checks if the Firebase authentication has changed
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //     if (user) {
-    //         // User is signed in.
-    //         var email = user.email;
-    //         $("#account-details").text(email);
-    //         $("#sign-in-status-container").show();
-    //     } else {
-    //         // redirects to login
-    //         window.location = "index.html";
-    //         return;
-    //     }
-    // });
-    // // logouts the user
-    // $("#sign-out").on("click", function() {
-    //     firebase.auth().signOut();
-    // })
+
+    //BEGIN HUMERA'S TESTING. 
+    // checks if the Firebase authentication has changed
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            var email = user.email;
+            $("#account-details").text(email);
+            $("#sign-in-status-container").show();
+        } else {
+            // redirects to login
+            window.location = "index.html";
+            return;
+        }
+    });
+    // logouts the user
+    $("#sign-out").on("click", function() {
+        firebase.auth().signOut();
+    })
+
+var couponRef = new Firebase('https://youpon-182016.firebaseio.com');
+    
+var couponField = document.getElementById('couponInput');
+
+// Save data to firebase
+function savedata(){
+  var coupon = couponField.value;
+
+  couponRef.push({fieldName:'couponField', text:coupon});
+  couponField.value = '';
+}
 
 
+
+var couponRef = new Firebase('https://youpon-182016.firebaseio.com');
+var userId = 0;
+
+// For user authentication
+function authHandler(error, authData) {
+  if (error) {
+    console.log('Login Failed!', error);
+  } else {
+    // Set the gravatar
+    document.getElementById('gravatar').src = authData.password.profileImageURL;
+  }
+}
+
+// Log the user in with an email combination
+couponRef.authWithPassword({
+  email    : 'hello@deanhume.com',
+  password : 'dean123'
+}, authHandler);
+
+couponRef.onAuth(function(authData) {
+   userId = authData.uid;
+});
+
+var couponField = document.getElementById('couponInput');
+var couponResults = document.getElementById('results');
+
+// Save data to firebase
+function savedata(){
+  var coupon = couponField.value;
+
+  couponRef.child('users').child(userId).push(
+  {
+  fieldName:'couponField', 
+  text:coupon
+  });
+  couponField.value = '';
+}
+
+// Update results when data is added
+couponRef.child('users').child(userId).limitToLast(10).on('child_added', function (snapshot) {
+    var data = snapshot.val();
+  var coupon = data.text;
+
+    if (coupon != undefined)
+    {
+      couponResults.value += '\n' + coupon;
+    }
+});
+
+
+
+
+
+//END HUMERA'S TESTING. FIREBASE
 
 // On search button: 
 //      clear results section,
