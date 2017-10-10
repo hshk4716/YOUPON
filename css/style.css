@@ -87,6 +87,7 @@ h2, h3, h4 {
 	width: auto;
 }
 .card {
+	margin: 10 0;
 	border: none;
 	font-size: smaller;
 	/*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);*/
@@ -96,6 +97,10 @@ h2, h3, h4 {
 }
 .card-block {
 	padding: 18px;
+}
+.bookmark-icon {
+	max-width: 18px;
+	height: auto;
 }
 
 @media (min-width: 34em) {

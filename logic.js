@@ -96,7 +96,7 @@ $("#submit-btn").click(function() {
 	                var newDealDivBlock = $("<div>");
 	                newDealDivBlock.addClass("card-block");
 
-	                newDealDivBlock.append("<span class='bookmark'><img class='img-responsive' data-state='unsaved' src='images/bookmark-icon-unclicked.png'></span> <br><br> <h5 class='card-title'>" + name + "</h5>");
+	                newDealDivBlock.append("<span class='bookmark'><img class='img-responsive bookmark-icon' data-state='unsaved' src='images/bookmark-icon-unclicked.png'></span> <br><br> <h5 class='card-title'>" + name + "</h5>");
 
 	                newDealDivBlock.append("<p class='card-text text-muted'>" + h1 + "</p>");
 	                var newDealDivInspection = $("<p>");
