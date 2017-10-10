@@ -1,22 +1,22 @@
 $(document).ready(function() {
     
-    // // checks if the Firebase authentication has changed
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //     if (user) {
-    //         // User is signed in.
-    //         var email = user.email;
-    //         $("#account-details").text(email);
-    //         $("#sign-in-status-container").show();
-    //     } else {
-    //         // redirects to login
-    //         window.location = "index.html";
-    //         return;
-    //     }
-    // });
-    // // logouts the user
-    // $("#sign-out").on("click", function() {
-    //     firebase.auth().signOut();
-    // })
+    // checks if the Firebase authentication has changed
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            var email = user.email;
+            $("#account-details").text(email);
+            $("#sign-in-status-container").show();
+        } else {
+            // redirects to login
+            // window.location = "index.html";
+            return;
+        }
+    });
+    // logouts the user
+    $("#sign-out").on("click", function() {
+        firebase.auth().signOut();
+    })
 
 
 
