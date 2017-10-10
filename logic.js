@@ -35,7 +35,7 @@ $("#submit-btn").click(function() {
     
     var userKey= $("#search-term").val().trim();
     console.log(userKey)
-    var queryURL1 = "http://api.sqoot.com/v2/deals?query="+ userKey+ "&category_slug=restaurants&location=cityofchicago&api_key=ayeoGcPfH-7ZUjj5u082";
+    var queryURL1 = "https://api.sqoot.com/v2/deals?query="+ userKey+ "&category_slug=restaurants&location=cityofchicago&api_key=ayeoGcPfH-7ZUjj5u082";
     $.ajax({
         url: queryURL1,
         method: "GET"
@@ -81,7 +81,7 @@ $("#submit-btn").click(function() {
 	                newDealDivImg.attr("alt", "Card image cap");
 	                var newDealDivBlock = $("<div>");
 	                newDealDivBlock.addClass("card-block");
-	                newDealDivBlock.append("<h5 class='card-title'>" + name + "</h5>");
+	                newDealDivBlock.append("<h5 class='card-title'>" + name + "<span><img class='img-responsive' src='images/bookmark-icon-unclicked.png'></span></h5>");
 	                newDealDivBlock.append("<p class='card-text text-muted'>" + h1 + "</p>");
 	                var newDealDivInspection = $("<p>");
 	                newDealDivInspection.addClass("inspection-ratings");
