@@ -14,6 +14,9 @@
 	<!-- Link to JQuery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
+	<!-- Link to Parallax -->
+	<script src="js/parallax.min.js"></script>
+	
 	<!-- Link to Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Oswald|Roboto:300,400" rel="stylesheet">
 
@@ -64,7 +67,7 @@
 
 </head>
 <body>
-	<div class="container m-t-md view-1">
+	<div class="container m-t-md view-1 parallax-window" data-bleed="10">
 		<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			 	<div class="modal-dialog" role="document">
@@ -87,15 +90,17 @@
 		<div class="row top-row">
 
 			<div class="col-md-1">
-				<!-- Button trigger modal -->
-				<button type="button" class="btn btn-default text-right" id="signInButton" data-toggle="modal" href="#exampleModal">
-				  Sign in
-				</button>
+				
 			</div>
 
 			<div class="col-md-8"></div>
 
 			<div class="col-md-3">
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-default float-right" id="signInButton" data-toggle="modal" href="#exampleModal">
+				  Sign in
+				</button>
+
 				<div id="sign-in-status-container">
 					Signed in as <span id="account-details"></span>
 					<a href="#" id="sign-out"> Sign out</a>
@@ -143,7 +148,7 @@
 			</div>
 			<div class="section">
 				
-				<div class="row results-section">
+				<div class="card-columns results-section">
 		  		
 		  			<!-- <div class="col-sm-6 col-md-4">
 		  				<div class="card" >

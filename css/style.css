@@ -20,17 +20,22 @@ h2, h3, h4 {
 
 /*  view 1 styling  */
 /*==================*/
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
 .view-1 {
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/bar-restaurant.jpg);
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
 	background-position: center top;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
+  	max-height: 100%;
 }
 #logo {
 	font-family: 'Oswald', sans-serif;
-	font-size: 80px;
+	font-size: 85px;
 	color: ghostwhite;
 }
 .landing-caption {
@@ -64,8 +69,10 @@ h2, h3, h4 {
 /*view 2 won't show until a search has been submitted*/
 .view-2 {
 	display: none;
-	padding: 10px 20px;
-	margin: 0 20px;
+	padding: 10px 50px;
+	/*margin: 0 20px;*/
+	background-color: white;
+	min-width: 100%;
 }
 .section-header {
 	margin: 20px;
@@ -75,7 +82,6 @@ h2, h3, h4 {
 	width: auto;
 }
 .card {
-	margin: 10px 7px;
 	border: none;
 	font-size: smaller;
 	/*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);*/
@@ -87,26 +93,58 @@ h2, h3, h4 {
 	padding: 18px;
 }
 
-/*.scrollToTop-icons {
-	max-width: 100%;
-	height:auto;
-}*/
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 75em) {
+    .card-columns {
+        -webkit-column-count: 5;
+        -moz-column-count: 5;
+        column-count: 5;
+    }
+}
+
+.unsaved {
+	max-width: 14px;
+	height: auto;
+}
 
 /*  scrollToTop button styling  */
 /*==============================*/
 
 .scrollToTop {
 	widows: 7px;0px; 
-	height:70px;
-	width: 40px;
+	height:65px;
+	width: 35px;
 	padding-top:5px; 
 	text-align:center; 
 	background-color: transparent;
 	font-weight: bold;
 	text-decoration: none;
 	position:fixed;
-	bottom:25px;
-	right:15px;
+	bottom:50px;
+	right:10px;
 	display:none;
 	border-radius: 10px;
 	/*background: url("../images/chevron_up.png") no-repeat 0px 20px;*/

@@ -7,6 +7,9 @@ $(document).ready(function() {
             var email = user.email;
             $("#account-details").text(email);
             $("#sign-in-status-container").show();
+            $("#signInButton").hide();
+            $("#sign-out").show();
+
         } else {
             // redirects to login
             // window.location = "index.html";
@@ -16,6 +19,8 @@ $(document).ready(function() {
     // logouts the user
     $("#sign-out").on("click", function() {
         firebase.auth().signOut();
+        $("#signInButton").show();
+        $("#sign-out").hide();
     })
 
 
@@ -72,7 +77,7 @@ $("#submit-btn").click(function() {
 	                var dealUrl = response.deals[i].deal.url;
 	                
 	                var newDealDiv = $("<div>");
-	                newDealDiv.addClass("col-sm-6 col-md-4 col-lg-3");
+	                // newDealDiv.addClass("col-sm-6 col-md-4 col-lg-3");
 	                var newDealDivCard = $("<div>");
 	                newDealDivCard.addClass("card");
 	                var newDealDivImg = $("<img>");
@@ -81,7 +86,9 @@ $("#submit-btn").click(function() {
 	                newDealDivImg.attr("alt", "Card image cap");
 	                var newDealDivBlock = $("<div>");
 	                newDealDivBlock.addClass("card-block");
-	                newDealDivBlock.append("<h5 class='card-title'>" + name + "<span><img class='img-responsive' src='images/bookmark-icon-unclicked.png'></span></h5>");
+
+	                newDealDivBlock.append("<span class='bookmark'><img class='img-responsive' data-state='unsaved' src='images/bookmark-icon-unclicked.png'></span> <br><br> <h5 class='card-title'>" + name + "</h5>");
+
 	                newDealDivBlock.append("<p class='card-text text-muted'>" + h1 + "</p>");
 	                var newDealDivInspection = $("<p>");
 	                newDealDivInspection.addClass("inspection-ratings");
@@ -142,4 +149,24 @@ $("#submit-btn").click(function() {
 	}, 800, 'linear');
 
 }); // close submit button listener
+
+//bookmark function
+$(document).on("click", ".bookmark", function() {
+	var img = $(this).children(":first");
+	var state = img.attr("data-state");
+	
+	if (state === "unsaved"){
+		img.attr("src", "images/bookmark-icon-clicked.png");
+		img.attr("data-state", "saved")
+
+		// add Firebase functionality HERE
+
+	} else if (state === "saved") {
+		img.attr("src", "images/bookmark-icon-unclicked.png")
+		img.attr("data-state", "unsaved")
+
+		// add Firebase functionality HERE
+	}
+});
+
 })

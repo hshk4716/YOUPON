@@ -30,4 +30,7 @@ $(document).ready(function(){
 		$("#myModal").modal();
 		// console.log("Sign in !")
 	});
+
+	$('.parallax-window').parallax({imageSrc: './images/bar-restaurant.jpg'});
+
 });
