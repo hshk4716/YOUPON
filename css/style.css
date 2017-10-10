@@ -104,8 +104,8 @@ h2, h3, h4 {
 	font-weight: bold;
 	text-decoration: none;
 	position:fixed;
-	bottom:35px;
-	right:40px;
+	bottom:25px;
+	right:15px;
 	display:none;
 	border-radius: 10px;
 	/*background: url("../images/chevron_up.png") no-repeat 0px 20px;*/
