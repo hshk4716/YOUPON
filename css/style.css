@@ -100,7 +100,7 @@ h2, h3, h4 {
 	width: 40px;
 	padding-top:5px; 
 	text-align:center; 
-	background-color: #6b6b6b;
+	background-color: transparent;
 	font-weight: bold;
 	text-decoration: none;
 	position:fixed;
@@ -116,7 +116,7 @@ h2, h3, h4 {
 }
 .scrollToTop:hover {
 	text-decoration:none;
-	background-color: #fff;
+	background-color: #6b6b6b;
 }
 
 /* Footer Styling  */
