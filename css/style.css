@@ -102,7 +102,13 @@ h2, h3, h4 {
 	max-width: 18px;
 	height: auto;
 }
-
+.green-splat {
+	max-width: 25px;
+	height: auto;
+}
+.violationsButton {
+	margin: 10px auto;
+}
 @media (min-width: 34em) {
     .card-columns {
         -webkit-column-count: 2;
@@ -127,13 +133,13 @@ h2, h3, h4 {
     }
 }
 
-@media (min-width: 75em) {
+/*@media (min-width: 75em) {
     .card-columns {
         -webkit-column-count: 5;
         -moz-column-count: 5;
         column-count: 5;
     }
-}
+}*/
 
 .unsaved {
 	max-width: 14px;
@@ -153,7 +159,7 @@ h2, h3, h4 {
 	font-weight: bold;
 	text-decoration: none;
 	position:fixed;
-	bottom:50px;
+	bottom:55px;
 	right:10px;
 	display:none;
 	border-radius: 10px;

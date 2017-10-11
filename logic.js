@@ -99,20 +99,39 @@ $("#submit-btn").click(function() {
 	                newDealDivBlock.append("<span class='bookmark'><img class='img-responsive bookmark-icon' data-state='unsaved' src='images/bookmark-icon-unclicked.png'></span> <br><br> <h5 class='card-title'>" + name + "</h5>");
 
 	                newDealDivBlock.append("<p class='card-text text-muted'>" + h1 + "</p>");
-	                var newDealDivInspection = $("<p>");
+	                
+	                var newDealDivInspection = $("<div> Risk Level: </div>");
 	                newDealDivInspection.addClass("inspection-ratings");
 	                newDealDivInspection.attr('data-name', useName);
-	                var inspectionInfo = $("<p>");
-	                inspectionInfo.addClass("violation-data")
-	                inspectionInfo.attr('data-input', useName);
+	                
+
+	                // var inspectionInfo = $("<p>");
+	                // inspectionInfo.addClass("violation-data")
+	                // inspectionInfo.attr('data-input', useName);
 	                // newDealDivInspection.append(inspectionInfo);
+	                var violationsButton = $("<button> See Inspection Results</button>");
+	                violationsButton.addClass('btn btn-default violationsButton')
+	                violationsButton.attr({
+	                	"data-toggle": 'modal',
+	                	"data-target": '#violationsModal',
+	              		"data-input": useName,
+	                });
+
+	                var inspectionList = $("<ul>");
+	                inspectionList.addClass('list-group list-group-flushh ')
+	                var inspectionListItem1 = $("<li>");
+	                inspectionListItem1.addClass('list-group-item')
+	                inspectionListItem1.append(newDealDivInspection);
+	                inspectionListItem1.append(violationsButton);
+	                inspectionList.append(inspectionListItem1);
+	                
 	                var dealLinkBlock = $("<div>");
 	                dealLinkBlock.addClass("card-block");
 	                dealLinkBlock.append("<a href='" + dealUrl +"' class='card-link'  target='_blank'>" + "Get this deal >>" + "</a>");
+	                
 	                newDealDivCard.append(newDealDivImg);
 	                newDealDivCard.append(newDealDivBlock);
-	                newDealDivCard.append(newDealDivInspection);
-	                newDealDivCard.append(inspectionInfo);
+	                newDealDivCard.append(inspectionList);
 	                newDealDivCard.append(dealLinkBlock);
 	                newDealDiv.append(newDealDivCard);
 	                $(".results-section").append(newDealDiv);
@@ -141,8 +160,14 @@ $("#submit-btn").click(function() {
 	                    console.log("violations response: " +violationsResponse);
 	                    
 	                    // console.log("p[data-name='" + nameUppercase + "']");
-	                    $("p[data-name='" + akaName.substr(0,3) + "']").text(riskResponse);
-	                    $("p[data-input='" + akaName.substr(0,3) + "']").text(violationsResponse);
+	                    var riskLevel = parseInt(riskResponse.substr(5, 1));
+	                    console.log("RISK LEVEL: " + riskLevel);
+	                    var numSplats = (6-riskLevel);
+	                    for (var i = 0; i < numSplats; i++){
+	                    	$("div[data-name='" + akaName.substr(0,3) + "']").append($("<img class='green-splat img-responsive' src='../YOUPON/images/green-splat.png'>"));
+	                    }
+	                    $("button[data-input='" + akaName.substr(0,3) + "']").attr("data-info", violationsResponse);
+
 	                }); // close city data API callback (.done)
 	                    
 	            } // close if statement checking for restaurants    
@@ -179,6 +204,27 @@ $(document).on("click", ".bookmark", function() {
 
 		// add Firebase functionality HERE
 	}
-});
+}); //end bookmark function
+
+
+
+$('#violationsModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var info = button.data('info') // Extract info from data-* attributes
+  var name = button.data('input')
+
+  var modal = $(this)
+  modal.find('.modal-title').text('Inspection Results -- ' + name)
+  if (!info) {
+  	modal.find('.modal-body').text("No inspection results were found")
+  } else {
+	  var split = info.split("|");
+	  for (i = 0; i < split.length; i++) {
+	  	modal.find('.modal-body').append($("<p>" + split[i] + "<p>"))
+	  }
+  }
+})
+
+
 
 })
