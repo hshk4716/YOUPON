@@ -200,8 +200,9 @@ $("#submit-btn").click(function() {
 	                    
 	                    // console.log("p[data-name='" + nameUppercase + "']");
 	                    var riskLevel = parseInt(riskResponse.substr(5, 1));
+	                    var numSplats = (6 - riskLevel);
 	                    console.log("RISK LEVEL: " + riskLevel);
-	                    var numSplats = (6-riskLevel);
+	                    console.log("NUM SPLATS: " + numSplats);
 	                    for (var i = 0; i < numSplats; i++){
 	                    	$("div[data-name='" + akaName.substr(0,3) + "']").append($("<img class='green-splat img-responsive' src='../YOUPON/images/green-splat.png'>"));
 	                    }
