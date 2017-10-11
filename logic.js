@@ -115,7 +115,7 @@ $("#submit-btn").click(function() {
 	                var longitude = restaurant.deal.merchant.longitude.toString().substr(0, 8);
 	                var name = response.deals[i].deal.merchant.name;
 	                var nameUppercase = name.toUpperCase();
-	                var useName = nameUppercase.substr(0, 3);
+	                var useName = nameUppercase.substr(0, 4);
 	                var urlCorrected = encodeURIComponent(nameUppercase)
 	                var finalURL = urlCorrected.replace("'", "%27").replace("-", "%2D").replace("!", "%21");
 	                var superFinalURL = finalURL.toString().substr(0, 2);
@@ -204,9 +204,9 @@ $("#submit-btn").click(function() {
 	                    console.log("RISK LEVEL: " + riskLevel);
 	                    console.log("NUM SPLATS: " + numSplats);
 	                    for (var i = 0; i < numSplats; i++){
-	                    	$("div[data-name='" + akaName.substr(0,3) + "']").append($("<img class='green-splat img-responsive' src='../YOUPON/images/green-splat.png'>"));
+	                    	$("div[data-name='" + akaName.substr(0,4) + "']").append($("<img class='green-splat img-responsive' src='../YOUPON/images/green-splat.png'>"));
 	                    }
-	                    $("button[data-input='" + akaName.substr(0,3) + "']").attr("data-info", violationsResponse);
+	                    $("button[data-input='" + akaName.substr(0,4) + "']").attr("data-info", violationsResponse);
 
 	                }); // close city data API callback (.done)
 	                    
