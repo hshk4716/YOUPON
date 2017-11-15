@@ -1,17 +1,12 @@
-# Youpon
-# Contributors/Roles
+# ew:Pon
+
+What a sweet deal! Or maybe not? ew:Pon cross lets users easily find deals offered at local businesses along with the most up to date health inspection ratings. Save money, and have peace of mind.
+
+## Contributors/Roles
 * Scrum Master: Yamini
 * Git Guardian: Humera
-### Front-end
-* Andrew
-### Back-end
-* Yamini
-* Brett
-* Humera
-## Summary
-What a sweet deal! Or maybe not? EwPon cross lets users easily find deals at local businesses, and see the most up to date health inspection ratings. Save money, and have peace of mind.
-<!--
-## Screenshot
-![Screenshot](http://s2.quickmeme.com/img/a1/a126b1b3c28083b2c7302fe8a02517f61371ff026653f8f2dcaaa63db80eb452.jpg)
--->
-Add Comment
+* Front-End: Andrew
+* Back-End: Yamini, Brett, Humera
+
+## Tools and Technologies
+To build the front end of ew:Pon, we used HTML5, CSS3, and Bootstrap 4. In the back end, we used the Sqoot API, along with Chicago Public Records.
